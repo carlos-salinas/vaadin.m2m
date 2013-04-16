@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+    <display-name>Vaadin Web Application</display-name>
+    <context-param>
+        <description>Vaadin production mode</description>
+        <param-name>productionMode</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Vaadin Application Servlet</servlet-name>
+        <servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
+        <init-param>
+            <description>Vaadin application class to start</description>
+            <param-name>UI</param-name>
+            <param-value>com.thingtrack.vaadin.mobile.MyVaadinApplication</param-value>
+        </init-param>
+                <init-param>
+            <description>Application widgetset</description>
+            <param-name>widgetset</param-name>
+            <param-value>com.thingtrack.vaadin.mobile.gwt.AppWidgetSet</param-value>
+        </init-param>
+        <init-param>
+			<param-name>pushmode</param-name>
+			<param-value>automatic</param-value>
+		</init-param>
+		<async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Vaadin Application Servlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+	<!-- Configure these is you need "fallback" application or non supported 
+		browsers -->
+<!-- 	
+	<init-param>
+		<description>
+			Vaadin fallback application class to start</description>
+		<param-name>fallbackApplication</param-name>
+		<param-value>com.vornitologist.VornitologistFallbackApplication</param-value>
+	</init-param>
+	<init-param>
+		<description>
+			Application widgetset</description>
+		<param-name>fallbackWidgetset</param-name>
+		<param-value>com.vaadin.terminal.gwt.DefaultWidgetSet</param-value>
+	</init-param>
+-->  
+    
+</web-app>
