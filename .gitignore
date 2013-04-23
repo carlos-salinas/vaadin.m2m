@@ -51,7 +51,5 @@ MANIFEST.MF
 
 #Maven binaries
 ###############
-**/bin/*
-**/bin/**/*
 target/
 
